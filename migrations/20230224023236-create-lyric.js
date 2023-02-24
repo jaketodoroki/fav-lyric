@@ -21,15 +21,15 @@ module.exports = {
           key: 'id',
         },
       },
-      lyricId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id',
-        },
-      },
+      // lyricId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'Profiles',
+      //     key: 'id',
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

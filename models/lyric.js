@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Lyric.belongsTo(models.Profile, {foreignKey: 'profileId'})
     }
   }
   Lyric.init({
@@ -26,15 +27,15 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    lyricId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      onDelete: 'CASCADE',
-      references: {
-        model: 'Profiles',
-        key: 'id',
-      }
-    },
+    // lyricId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   onDelete: 'CASCADE',
+    //   references: {
+    //     model: 'Profiles',
+    //     key: 'id',
+    //   }
+    // },
   }, {
     sequelize,
     modelName: 'Lyric',
