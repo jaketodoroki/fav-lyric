@@ -28,8 +28,21 @@ async function show(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+    const lyric = await Lyric.findByPk(req.params.lyricId)
+    lyric.lyric = req.body.lyric
+    lyric.name = req.body.name
+    lyric.save()
+    res.status(200).json(lyric)
+  } catch (error) {
+    res.status(500).json({ err: error })
+  }
+}
+
 module.exports = {
   createLyric,
   index,
-  show
+  show,
+  update
 }

@@ -12,5 +12,6 @@ router.use(decodeUserFromToken)
 router.post('/', checkAuth, lyricsCtrl.createLyric)
 router.get('/', checkAuth, lyricsCtrl.index)
 router.get('/:lyricId', checkAuth, lyricsCtrl.show)
+router.put('/:lyricId', checkAuth, lyricsCtrl.update)
 
 module.exports = router
