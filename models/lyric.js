@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    name: DataTypes.STRING,
+    name: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      onDelete: 'CASCADE',
+    },
     profileId: {
       type: DataTypes.INTEGER,
       allowNull: false,

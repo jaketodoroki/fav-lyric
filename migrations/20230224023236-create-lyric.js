@@ -16,7 +16,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      name: DataTypes.STRING,
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        onDelete: 'CASCADE',
+      },
       profileId: {
         type: Sequelize.INTEGER,
         allowNull: false,
