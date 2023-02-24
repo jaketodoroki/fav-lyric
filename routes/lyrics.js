@@ -9,5 +9,6 @@ const { decodeUserFromToken, checkAuth } = middleware
 
 //------------ Protected Routes ----------
 router.use(decodeUserFromToken)
+router.post('/', checkAuth, lyricsCtrl.createLyric)
 
 module.exports = router

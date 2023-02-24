@@ -15,9 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Lyric.init({
-    value: {
+    lyric: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
+    name: DataTypes.STRING,
     profileId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,15 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
-    // lyricId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   onDelete: 'CASCADE',
-    //   references: {
-    //     model: 'Profiles',
-    //     key: 'id',
-    //   }
-    // },
+
   }, {
     sequelize,
     modelName: 'Lyric',

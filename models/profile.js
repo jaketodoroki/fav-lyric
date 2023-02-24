@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       Profile.belongsTo(models.User, { foreignKey: 'userId' })
 
       Profile.hasMany(models.Lyric, {
-        as: 'lyricGiven',
+        as: 'lyricCreated',
         foreignKey: 'profileId',
       })
     }
