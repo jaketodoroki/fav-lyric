@@ -40,9 +40,20 @@ async function update(req, res) {
   }
 }
 
+async function deleteLyric(req, res) {
+  try {
+    const lyric = await Lyric.findByPk(req.params.lyricId)
+    await lyric.destroy()
+    res.status(200).json(lyric)
+  } catch (error) {
+    res.status(500).json({ err: error })
+  }
+}
+
 module.exports = {
   createLyric,
   index,
   show,
-  update
+  update,
+  deleteLyric
 }

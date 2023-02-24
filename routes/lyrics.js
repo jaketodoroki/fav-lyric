@@ -13,5 +13,6 @@ router.post('/', checkAuth, lyricsCtrl.createLyric)
 router.get('/', checkAuth, lyricsCtrl.index)
 router.get('/:lyricId', checkAuth, lyricsCtrl.show)
 router.put('/:lyricId', checkAuth, lyricsCtrl.update)
+router.delete('/:lyricId', checkAuth, lyricsCtrl.deleteLyric)
 
 module.exports = router
