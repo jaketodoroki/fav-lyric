@@ -11,5 +11,6 @@ const { decodeUserFromToken, checkAuth } = middleware
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, lyricsCtrl.createLyric)
 router.get('/', checkAuth, lyricsCtrl.index)
+router.get('/:lyricId', checkAuth, lyricsCtrl.show)
 
 module.exports = router

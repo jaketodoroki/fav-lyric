@@ -10,7 +10,7 @@ async function createLyric(req, res) {
   }
 }
 
-async function index(req, res){
+async function index(req, res) {
   try {
     const lyrics = await Lyric.findAll()
     res.status(200).json(lyrics)
@@ -19,7 +19,17 @@ async function index(req, res){
   }
 }
 
+async function show(req, res) {
+  try {
+    const lyric = await Lyric.findByPk(req.params.lyricId)
+    res.status(200).json(lyric)
+  } catch (error) {
+    res.status(500).json({ err: error })
+  }
+}
+
 module.exports = {
   createLyric,
-  index
+  index,
+  show
 }
