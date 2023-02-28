@@ -1,8 +1,8 @@
-const { Lyric } = require('../models')
+const { Lyric, profile } = require('../models')
 
 async function createLyric(req, res) {
   try {
-    req.body.userId = req.user.profileId
+    req.body.profileId = req.user.profile.id
     const lyric = await Lyric.create(req.body)
     res.status(200).json(lyric)
   } catch (error) {
