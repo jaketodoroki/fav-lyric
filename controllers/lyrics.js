@@ -33,7 +33,7 @@ async function update(req, res) {
     const lyric = await Lyric.findByPk(req.params.lyricId)
     lyric.lyric = req.body.lyric
     lyric.name = req.body.name
-    lyric.save()
+    await lyric.save()
     res.status(200).json(lyric)
   } catch (error) {
     res.status(500).json({ err: error })
@@ -42,9 +42,10 @@ async function update(req, res) {
 
 async function deleteLyric(req, res) {
   try {
-    const lyric = await Lyric.findByPk(req.params.lyricId)
-    await lyric.destroy()
-    res.status(200).json(lyric)
+    // const lyric = await Lyric.findByPk(req.params.lyricId)
+    // await lyric.destroy()
+    const rowsRemoved = await Lyric.destroy({ where: { name: req.params.lyricName}})
+    res.status(200).json(rowsRemoved)
   } catch (error) {
     res.status(500).json({ err: error })
   }
